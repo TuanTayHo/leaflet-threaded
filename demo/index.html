@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>leaflet-threaded demo - ViQy Layer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://quyhoachvietnam.com.vn/demo/css/leaflet.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <!-- Leaflet core -->
+  <script src="https://quyhoachvietnam.com.vn/demo/js/leaflet.js"></script>
+
+  <!-- ViQy custom tile layer (Worker + OffscreenCanvas + Bing support) -->
+  <script src="https://quyhoachvietnam.com.vn/demo/js/L.tileLayer.viqy.js"></script>
+  <script>
+    const map = L.map('map', {
+      center: [21.0285, 105.8542],
+      zoom: 13,
+      preferCanvas: true
+    });
+    const viqyLayer = L.tileLayer.viqy(
+      'https://mts{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}&format=webp',
+      {
+        detectRetina: true,
+        maxZoom: 19,
+        useBingMaps: false,
+        subdomains: '0123'
+      }
+    );
+    viqyLayer.addTo(map);
+  </script>  
+</body>
+</html>
