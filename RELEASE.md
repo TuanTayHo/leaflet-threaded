@@ -54,4 +54,3 @@ Test deployment performance on low-spec mobile hardware.
 Notes
 All source code has been manually reviewed and verified through the included demos.
 Some components are not yet covered by automated testing, but can be extended via the spec/ directory.
-
